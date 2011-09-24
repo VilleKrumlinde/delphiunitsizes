@@ -1,0 +1,114 @@
+object MainForm: TMainForm
+  Left = 0
+  Top = 0
+  BiDiMode = bdLeftToRight
+  Caption = 'Delphi Unit Sizes - (C) 2011 Ville Krumlinde'
+  ClientHeight = 562
+  ClientWidth = 911
+  Transparency = False
+  Visible = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  StyleLookup = 'backgroundstyle'
+  object UnitList: TStringGrid
+    Align = alLeft
+    Position.Point = '(0,33)'
+    Width = 385.000000000000000000
+    Height = 479.000000000000000000
+    OnClick = UnitListClick
+    StyleLookup = 'gridstyle'
+    TabOrder = 1
+    AlternatingRowBackground = True
+    RowHeight = 21.000000000000000000
+    RowCount = 0
+    object StringColumn1: TStringColumn
+      Width = 200.000000000000000000
+      Height = 456.000000000000000000
+      HitTest = False
+      TabOrder = 0
+      Header = 'Unit'
+    end
+    object StringColumn2: TStringColumn
+      Position.Point = '(200,0)'
+      Width = 150.000000000000000000
+      Height = 456.000000000000000000
+      HitTest = False
+      TabOrder = 1
+      Header = 'Size'
+    end
+  end
+  object SymbolList: TStringGrid
+    Align = alClient
+    Position.Point = '(390,33)'
+    Width = 521.000000000000000000
+    Height = 479.000000000000000000
+    StyleLookup = 'gridstyle'
+    TabOrder = 2
+    RowHeight = 21.000000000000000000
+    RowCount = 0
+    object StringColumn3: TStringColumn
+      Width = 200.000000000000000000
+      Height = 456.000000000000000000
+      HitTest = False
+      TabOrder = 0
+      Header = 'Symbol'
+    end
+    object StringColumn4: TStringColumn
+      Position.Point = '(200,0)'
+      Width = 160.000000000000000000
+      Height = 456.000000000000000000
+      HitTest = False
+      TabOrder = 1
+      Header = 'Size'
+    end
+  end
+  object ToolBar1: TToolBar
+    Width = 911.000000000000000000
+    Height = 33.000000000000000000
+    TabOrder = 3
+    object OpenButton: TButton
+      Position.Point = '(5,5)'
+      Width = 113.000000000000000000
+      Height = 22.000000000000000000
+      OnClick = OpenButtonClick
+      TabOrder = 1
+      StaysPressed = False
+      IsPressed = False
+      Text = 'Open map file...'
+    end
+  end
+  object Memo1: TMemo
+    Align = alBottom
+    Position.Point = '(0,512)'
+    Width = 911.000000000000000000
+    Height = 50.000000000000000000
+    TabOrder = 6
+    ShowScrollBars = False
+    ReadOnly = True
+    WordWrap = False
+    Text = 
+      'This program shows the size of each unit that is included in a D' +
+      'elphi exe-file. It also shows an approximate size of each symbol' +
+      ' (classes, methods, procedures etc) in a unit.'#13#10'How to use: Set ' +
+      '"Project Options  - Linking - Map File" to "Publics" or "Detaile' +
+      'd". Then open the resulting map-file with this program.'#13#10'You can' +
+      ' also use it in Delphi tools menu with parameters: $PATH($EXENAM' +
+      'E)$NAMEONLY($EXENAME).MAP or simply associate it with map-files ' +
+      'in explorer.'
+  end
+  object Splitter1: TSplitter
+    Align = alLeft
+    Cursor = crHSplit
+    Position.Point = '(385,33)'
+    Width = 5.000000000000000000
+    Height = 479.000000000000000000
+    TabOrder = 7
+    MinSize = 20.000000000000000000
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = '*.map'
+    Title = 'Open map file'
+    Left = 81
+    Top = 166
+  end
+end
