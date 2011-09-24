@@ -84,7 +84,7 @@ var
   Lines : TStringList;
   I,LineNr : integer;
   Line,S,SegType,UnitName : string;
-  PrevU,U : TUnitInfo;
+  U : TUnitInfo;
   PrevSym,Sym : TSymbolInfo;
   SkipSegs : TDictionary<string,boolean>;
 begin
@@ -149,7 +149,6 @@ begin
     Inc(LineNr,2);
 
     PrevSym := nil;
-    PrevU := nil;
     repeat
       Line := Lines[LineNr];
       if Length(Line)=0 then
@@ -195,7 +194,6 @@ begin
         end;
       end;
       PrevSym := Sym;
-      PrevU := U;
 
     until False;
 
