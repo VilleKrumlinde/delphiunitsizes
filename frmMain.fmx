@@ -17,7 +17,7 @@ object MainForm: TMainForm
     Height = 479.000000000000000000
     OnClick = UnitListClick
     StyleLookup = 'gridstyle'
-    TabOrder = 1
+    TabOrder = 0
     AlternatingRowBackground = True
     RowHeight = 21.000000000000000000
     RowCount = 0
@@ -43,7 +43,7 @@ object MainForm: TMainForm
     Width = 521.000000000000000000
     Height = 479.000000000000000000
     StyleLookup = 'gridstyle'
-    TabOrder = 2
+    TabOrder = 1
     RowHeight = 21.000000000000000000
     RowCount = 0
     object StringColumn3: TStringColumn
@@ -65,13 +65,13 @@ object MainForm: TMainForm
   object ToolBar1: TToolBar
     Width = 911.000000000000000000
     Height = 33.000000000000000000
-    TabOrder = 3
+    TabOrder = 2
     object OpenButton: TButton
       Position.Point = '(5,5)'
       Width = 113.000000000000000000
       Height = 22.000000000000000000
       OnClick = OpenButtonClick
-      TabOrder = 1
+      TabOrder = 0
       StaysPressed = False
       IsPressed = False
       Text = 'Open map file...'
@@ -82,7 +82,7 @@ object MainForm: TMainForm
     Position.Point = '(0,512)'
     Width = 911.000000000000000000
     Height = 50.000000000000000000
-    TabOrder = 6
+    TabOrder = 3
     ShowScrollBars = False
     ReadOnly = True
     WordWrap = False
@@ -102,7 +102,7 @@ object MainForm: TMainForm
     Position.Point = '(385,33)'
     Width = 5.000000000000000000
     Height = 479.000000000000000000
-    TabOrder = 7
+    TabOrder = 4
     MinSize = 20.000000000000000000
   end
   object OpenDialog1: TOpenDialog
