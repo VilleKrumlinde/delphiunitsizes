@@ -81,15 +81,19 @@ begin
 
   UnitList.Selected := -1;
 
-  UnitList.RowCount := Map.Units.Count;
-  SymbolList.RowCount := 0;
-
-  Row := 0;
-  for U in Map.Units do
-  begin
-    UnitList.Cells[0,Row] := U.Name;
-    UnitList.Cells[1,Row] := IntToStr(U.Size);
-    Inc(Row);
+  UnitList.BeginUpdate;
+  try
+    UnitList.RowCount := Map.Units.Count;
+    SymbolList.RowCount := 0;
+    Row := 0;
+    for U in Map.Units do
+    begin
+      UnitList.Cells[0,Row] := U.Name;
+      UnitList.Cells[1,Row] := IntToStr(U.Size);
+      Inc(Row);
+    end;
+  finally
+    UnitList.EndUpdate;
   end;
 end;
 
@@ -108,13 +112,18 @@ begin
   if not Map.UnitMap.TryGetValue(UnitList.Cells[0,Row],U) then
     Exit;
 
-  Row := 0;
-  SymbolList.RowCount := U.Symbols.Count;
-  for Sym in U.Symbols do
-  begin
-    SymbolList.Cells[0,Row] := Sym.Name;
-    SymbolList.Cells[1,Row] := IntToStr(Sym.Size);
-    Inc(Row);
+  SymbolList.BeginUpdate;
+  try
+    Row := 0;
+    SymbolList.RowCount := U.Symbols.Count;
+    for Sym in U.Symbols do
+    begin
+      SymbolList.Cells[0,Row] := Sym.Name;
+      SymbolList.Cells[1,Row] := IntToStr(Sym.Size);
+      Inc(Row);
+    end;
+  finally
+    SymbolList.EndUpdate;
   end;
 end;
 
