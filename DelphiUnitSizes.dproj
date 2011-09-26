@@ -70,10 +70,10 @@
 			<DCC_RemoteDebug>true</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<Debugger_RunParams>C:\Data\Delphi32\ZzDC_Public\tools\ZDesigner\exe\zzdc.map</Debugger_RunParams>
 			<DCC_MapFile>2</DCC_MapFile>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
 			<Icon_MainIcon>c:\program files (x86)\embarcadero\rad studio\9.0\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
-			<Debugger_RunParams>C:\Data\Delphi32\ZzDC_Public\tools\ZDesigner\exe\zzdc.map</Debugger_RunParams>
 			<VerInfo_Locale>1033</VerInfo_Locale>
 			<DCC_DebugInfoInExe>false</DCC_DebugInfoInExe>
 			<DCC_RemoteDebug>false</DCC_RemoteDebug>
