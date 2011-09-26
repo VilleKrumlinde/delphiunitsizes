@@ -21,6 +21,8 @@ THE SOFTWARE.}
 program DelphiUnitSizes;
 
 uses
+  FMX.Types,
+  FMX.Canvas.GDIP,
   FMX.Forms,
   frmMain in 'frmMain.pas' {MainForm},
   MapClasses in 'MapClasses.pas';
@@ -29,6 +31,7 @@ uses
 
 begin
   ReportMemoryLeaksOnShutdown := True;
+  FMX.Types.GlobalUseDirect2D := False;  //Force GDI to avoid fuzzy fonts
 
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

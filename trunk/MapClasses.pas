@@ -109,7 +109,7 @@ begin
       SegType := Trim( Copy(Line,27,9) );
       if (SegType='BSS') or (SegType='TLS') then
       begin
-        //Skip segments that does not contribute to exe-size
+        //Skip segments that do not contribute to exe-size
         S := Copy(Line,2,4);
         if not SkipSegs.ContainsKey(S) then
           SkipSegs.Add(S,True);
