@@ -107,7 +107,7 @@ object MainForm: TMainForm
     MinSize = 20.000000000000000000
   end
   object OpenDialog1: TOpenDialog
-    Filter = '*.map'
+    Filter = 'Mapfiles (*.map)|*.map'
     Title = 'Open map file'
     Left = 81
     Top = 166

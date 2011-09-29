@@ -24,9 +24,8 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, MapClasses, Data.Bind.EngExt,
-  Fmx.Bind.DBEngExt, System.Rtti, System.Bindings.Outputs, Data.Bind.Components,
-  FMX.Grid, FMX.Layouts, FMX.Memo;
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, MapClasses,
+  FMX.Grid, FMX.Memo, FMX.Layouts;
 
 type
   TMainForm = class(TForm)
@@ -77,6 +76,12 @@ var
   U : TUnitInfo;
   Row : integer;
 begin
+  if not FileExists(Filename) then
+  begin
+    ShowMessage('File not found: ' + Filename);
+    Exit;
+  end;
+
   Map.LoadFromFile(Filename);
 
   UnitList.Selected := -1;
