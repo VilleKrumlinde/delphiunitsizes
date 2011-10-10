@@ -15,6 +15,7 @@ object MainForm: TMainForm
     Position.Point = '(0,33)'
     Width = 385.000000000000000000
     Height = 479.000000000000000000
+    PopupMenu = PopupMenu1
     OnClick = UnitListClick
     StyleLookup = 'gridstyle'
     TabOrder = 0
@@ -111,5 +112,26 @@ object MainForm: TMainForm
     Title = 'Open map file'
     Left = 81
     Top = 166
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 65
+    Top = 119
+    object MenuItem1: TMenuItem
+      Width = 50.000000000000000000
+      Height = 50.000000000000000000
+      OnClick = SortUnitsClick
+      TabOrder = 0
+      ShortCut = 0
+      Text = 'Sort units by size'
+    end
+    object MenuItem2: TMenuItem
+      Tag = 1
+      Width = 50.000000000000000000
+      Height = 50.000000000000000000
+      OnClick = SortUnitsClick
+      TabOrder = 1
+      ShortCut = 0
+      Text = 'Sort units by name'
+    end
   end
 end
