@@ -49,6 +49,7 @@ type
     constructor Create;
     destructor Destroy; override;
     procedure LoadFromFile(const Filename : string);
+    procedure SortUnits(const SortIndex: integer);
   end;
 
 implementation
@@ -78,6 +79,27 @@ begin
   UnitMap.Clear;
 end;
 
+procedure TMapFile.SortUnits(const SortIndex : integer);
+begin
+  case SortIndex of
+    0 :
+      Units.Sort(
+        //Sort on size
+        TComparer<TUnitInfo>.Construct(function (const Item1, Item2: TUnitInfo): Integer
+        begin
+          Result := Item2.Size-Item1.Size;
+        end
+      ));
+    1 :
+      Units.Sort(
+        //Sort on size
+        TComparer<TUnitInfo>.Construct(function (const Item1, Item2: TUnitInfo): Integer
+        begin
+          Result := CompareText(Item1.Name,Item2.Name);
+        end
+      ));
+  end;
+end;
 
 procedure TMapFile.LoadFromFile(const Filename: string);
 var
@@ -134,13 +156,7 @@ begin
 
     until False;
 
-    Units.Sort(
-      //Sort on size
-      TComparer<TUnitInfo>.Construct(function (const Item1, Item2: TUnitInfo): Integer
-      begin
-        Result := Item2.Size-Item1.Size;
-      end
-    ));
+    SortUnits(0);
 
     //Read symbols
     LineNr := Lines.IndexOf('  Address             Publics by Value');

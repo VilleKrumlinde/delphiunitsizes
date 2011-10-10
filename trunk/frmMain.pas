@@ -24,8 +24,8 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, MapClasses,
-  FMX.Grid, FMX.Memo, FMX.Layouts;
+  FMX.Controls, FMX.Forms, FMX.Dialogs, MapClasses,
+  FMX.Grid, FMX.Memo, FMX.Layouts, FMX.Types, FMX.Menus;
 
 type
   TMainForm = class(TForm)
@@ -40,14 +40,19 @@ type
     OpenDialog1: TOpenDialog;
     Memo1: TMemo;
     Splitter1: TSplitter;
+    PopupMenu1: TPopupMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure UnitListClick(Sender: TObject);
     procedure OpenButtonClick(Sender: TObject);
+    procedure SortUnitsClick(Sender: TObject);
   private
     { Private declarations }
     Map : TMapFile;
     procedure LoadFromFile(const Filename: string);
+    procedure PopulateUnitList;
   public
     { Public declarations }
   end;
@@ -71,21 +76,12 @@ begin
   Map.Free;
 end;
 
-procedure TMainForm.LoadFromFile(const Filename: string);
+procedure TMainForm.PopulateUnitList;
 var
   U : TUnitInfo;
   Row : integer;
 begin
-  if not FileExists(Filename) then
-  begin
-    ShowMessage('File not found: ' + Filename);
-    Exit;
-  end;
-
-  Map.LoadFromFile(Filename);
-
   UnitList.Selected := -1;
-
   UnitList.BeginUpdate;
   try
     UnitList.RowCount := Map.Units.Count;
@@ -100,6 +96,19 @@ begin
   finally
     UnitList.EndUpdate;
   end;
+end;
+
+procedure TMainForm.LoadFromFile(const Filename: string);
+begin
+  if not FileExists(Filename) then
+  begin
+    ShowMessage('File not found: ' + Filename);
+    Exit;
+  end;
+
+  Map.LoadFromFile(Filename);
+
+  PopulateUnitList;
 end;
 
 procedure TMainForm.UnitListClick(Sender: TObject);
@@ -139,5 +148,12 @@ begin
     LoadFromFile(OpenDialog1.FileName);
   end;
 end;
+
+procedure TMainForm.SortUnitsClick(Sender: TObject);
+begin
+  Map.SortUnits( (Sender as TMenuItem).Tag );
+  PopulateUnitList;
+end;
+
 
 end.
