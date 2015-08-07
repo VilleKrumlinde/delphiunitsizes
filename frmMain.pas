@@ -1,4 +1,4 @@
-{Copyright (c) 2011 Ville Krumlinde
+{Copyright (c) 2015 Ville Krumlinde
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Controls, FMX.Forms, FMX.Dialogs, MapClasses,
-  FMX.Grid, FMX.Memo, FMX.Layouts, FMX.Types, FMX.Menus;
+  FMX.Grid, FMX.Memo, FMX.Layouts, FMX.Types, FMX.Menus, System.Rtti,
+  FMX.StdCtrls, FMX.ScrollBox, FMX.Controls.Presentation;
 
 type
   TMainForm = class(TForm)

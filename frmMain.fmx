@@ -1,111 +1,120 @@
 object MainForm: TMainForm
   Left = 0
   Top = 0
-  BiDiMode = bdLeftToRight
   Caption = 'Delphi Unit Sizes - (C) 2011 Ville Krumlinde'
   ClientHeight = 562
   ClientWidth = 911
-  Transparency = False
-  Visible = False
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  StyleLookup = 'backgroundstyle'
+  DesignerMasterStyle = 0
   object UnitList: TStringGrid
-    Align = alLeft
-    Position.Point = '(0,33)'
-    Width = 385.000000000000000000
-    Height = 479.000000000000000000
+    Align = Left
     PopupMenu = PopupMenu1
-    OnClick = UnitListClick
-    StyleLookup = 'gridstyle'
+    Position.Y = 33.000000000000000000
+    Size.Width = 385.000000000000000000
+    Size.Height = 479.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 0
-    AlternatingRowBackground = True
-    RowHeight = 21.000000000000000000
+    OnClick = UnitListClick
+    Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick]
     RowCount = 0
+    RowHeight = 21.000000000000000000
+    Viewport.Width = 381.000000000000000000
+    Viewport.Height = 454.000000000000000000
     object StringColumn1: TStringColumn
-      Width = 200.000000000000000000
-      Height = 456.000000000000000000
-      HitTest = False
-      TabOrder = 0
       Header = 'Unit'
+      Size.Width = 200.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
     end
     object StringColumn2: TStringColumn
-      Position.Point = '(200,0)'
-      Width = 150.000000000000000000
-      Height = 456.000000000000000000
-      HitTest = False
-      TabOrder = 1
       Header = 'Size'
+      Position.X = 200.000000000000000000
+      Size.Width = 150.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
     end
   end
   object SymbolList: TStringGrid
-    Align = alClient
-    Position.Point = '(390,33)'
-    Width = 521.000000000000000000
-    Height = 479.000000000000000000
-    StyleLookup = 'gridstyle'
+    Align = Client
+    Size.Width = 521.000000000000000000
+    Size.Height = 479.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 1
-    AlternatingRowBackground = True
-    RowHeight = 21.000000000000000000
+    Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick]
     RowCount = 0
+    RowHeight = 21.000000000000000000
+    Viewport.Width = 517.000000000000000000
+    Viewport.Height = 454.000000000000000000
     object StringColumn3: TStringColumn
-      Width = 200.000000000000000000
-      Height = 456.000000000000000000
-      HitTest = False
-      TabOrder = 0
       Header = 'Symbol'
+      Size.Width = 200.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
     end
     object StringColumn4: TStringColumn
-      Position.Point = '(200,0)'
-      Width = 160.000000000000000000
-      Height = 456.000000000000000000
-      HitTest = False
-      TabOrder = 1
       Header = 'Size'
+      Position.X = 200.000000000000000000
+      Size.Width = 160.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
     end
   end
   object ToolBar1: TToolBar
-    Width = 911.000000000000000000
-    Height = 33.000000000000000000
+    Size.Width = 911.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 2
     object OpenButton: TButton
-      Position.Point = '(5,5)'
-      Width = 113.000000000000000000
-      Height = 22.000000000000000000
-      OnClick = OpenButtonClick
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 0
-      StaysPressed = False
-      IsPressed = False
       Text = 'Open map file...'
+      OnClick = OpenButtonClick
     end
   end
   object Memo1: TMemo
-    Align = alBottom
-    Position.Point = '(0,512)'
-    Width = 911.000000000000000000
-    Height = 50.000000000000000000
-    TabOrder = 3
-    ShowScrollBars = False
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Lines.Strings = (
+      
+        'This program shows the size of each unit that is included in a D' +
+        'elphi exe-file. It also shows an approximate size of each symbol' +
+        ' (classes, methods, procedures etc) in a unit.'
+      
+        'How to use: Set "Project Options  - Linking - Map File" to "Publ' +
+        'ics" or "Detailed". Then open the resulting map-file with this p' +
+        'rogram.'
+      
+        'You can also use it in Delphi tools menu with parameters: $PATH(' +
+        '$EXENAME)$NAMEONLY($EXENAME).MAP or simply associate it with map' +
+        '-files in explorer.')
     ReadOnly = True
-    WordWrap = False
-    Text = 
-      'This program shows the size of each unit that is included in a D' +
-      'elphi exe-file. It also shows an approximate size of each symbol' +
-      ' (classes, methods, procedures etc) in a unit.'#13#10'How to use: Set ' +
-      '"Project Options  - Linking - Map File" to "Publics" or "Detaile' +
-      'd". Then open the resulting map-file with this program.'#13#10'You can' +
-      ' also use it in Delphi tools menu with parameters: $PATH($EXENAM' +
-      'E)$NAMEONLY($EXENAME).MAP or simply associate it with map-files ' +
-      'in explorer.'
+    ShowScrollBars = False
+    Align = Bottom
+    Position.Y = 512.000000000000000000
+    Size.Width = 911.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Viewport.Width = 907.000000000000000000
+    Viewport.Height = 46.000000000000000000
   end
   object Splitter1: TSplitter
-    Align = alLeft
+    Align = Left
     Cursor = crHSplit
-    Position.Point = '(385,33)'
-    Width = 5.000000000000000000
-    Height = 479.000000000000000000
-    TabOrder = 4
     MinSize = 20.000000000000000000
+    Position.X = 385.000000000000000000
+    Position.Y = 33.000000000000000000
+    Size.Width = 5.000000000000000000
+    Size.Height = 479.000000000000000000
+    Size.PlatformDefault = False
   end
   object OpenDialog1: TOpenDialog
     Filter = 'Mapfiles (*.map)|*.map'
@@ -117,21 +126,13 @@ object MainForm: TMainForm
     Left = 65
     Top = 119
     object MenuItem1: TMenuItem
-      Width = 50.000000000000000000
-      Height = 50.000000000000000000
-      OnClick = SortUnitsClick
-      TabOrder = 0
-      ShortCut = 0
       Text = 'Sort units by size'
+      OnClick = SortUnitsClick
     end
     object MenuItem2: TMenuItem
       Tag = 1
-      Width = 50.000000000000000000
-      Height = 50.000000000000000000
-      OnClick = SortUnitsClick
-      TabOrder = 1
-      ShortCut = 0
       Text = 'Sort units by name'
+      OnClick = SortUnitsClick
     end
   end
 end
